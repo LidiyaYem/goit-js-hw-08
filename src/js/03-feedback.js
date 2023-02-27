@@ -28,18 +28,12 @@ function populateTextarea(e) {
     const savedMessage = localStorage.getItem('STORAGE_KEY');
 
     if (savedMessage) {
-        const formData = JSON.parse(savedMessage);
+        formData = JSON.parse(savedMessage);
         const entry = Object.entries(formData);
 
-        const [name, value] = entry;
-        entry.forEach(function(name) {
-           refs.form[name].value = entry.value;
-        })
-
-        // if (formData) {
-        //     console.log(formData);
-        //     refs.form.value = formData; 
-        // }
+        entry.forEach(function([name, value]) {
+           refs.form[name].value = value;
+        });
     }
     }
     catch (error) {
